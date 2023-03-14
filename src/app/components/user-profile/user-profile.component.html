@@ -1,0 +1,73 @@
+<div class="register_page mt-4">
+    <div class="cantainer">
+        <div class="row mb-2">
+            <div class="col-md-8 offset-md-2">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <h2 class="d-inline-block mb-2 text-primary">
+                    <span>Profile</span>
+                    <span class="edit-icon" (click)="edit()">&#x270E;</span>
+                    </h2>
+                  <!-- <h2 class="mb-0">
+                    <a class="text-dark" href="#">Details</a>
+                  </h2> -->
+                  <!-- <div class="mb-1 text-muted">Nov 12</div> -->
+                  <div class="row mt-3">
+                    <!-- <div class="col-md-10"><h3><b>Name :</b> {{currentLoggedInUser?.name}}</h3></div>
+                    <div class="col-md-10"><h3><b>Date of Birth :</b> {{currentLoggedInUser?.dob}}</h3> </div>
+                    <div class="col-md-10"><h3><b>Aadhar :</b> {{currentLoggedInUser?.aadharcard.aadharNo}}</h3></div>
+                    <div class="col-md-10"><h3><b>Contact :</b> {{currentLoggedInUser?.aadharcard.mobile}}</h3></div>
+                    <div class="col-md-10"><h3><b>Address :</b> {{currentLoggedInUser?.address}}</h3></div>
+                    <div class="col-md-10"><h3><b>City :</b> {{currentLoggedInUser?.city}}</h3></div> -->
+                    <table class="center">
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Name :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.name}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Gender :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.gender}}</h3></div></td>
+                      </tr>
+                      <!-- <tr>
+                        <td><div class="col-md-20"><h3><b>Date of Birth :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.dob}}</h3></div></td>
+                      </tr> -->
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Age :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.age}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Aadhar number :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.aadharcard.aadharNo}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Contact :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.aadharcard.mobile}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Address :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.address}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>City :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.city}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>State :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.state}}</h3></div></td>
+                      </tr>
+                      <tr>
+                        <td><div class="col-md-20"><h3><b>Pin code :</b></h3></div></td>
+                        <td><div class="col-md-20"><h3>{{currentLoggedInUser?.pincode}}</h3></div></td>
+                      </tr>
+                    </table>
+                  </div>
+                  
+                </div>
+                <!-- <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 278px; height: 332px;" src="https://www.cowin.gov.in/assets/images/independance-mob.svg" data-holder-rendered="true"> -->
+              </div>
+            </div>
+            
+          </div>
+    </div>
+</div>

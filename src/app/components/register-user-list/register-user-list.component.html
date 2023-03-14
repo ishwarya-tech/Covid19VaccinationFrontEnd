@@ -1,0 +1,69 @@
+<div class="login_page">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="card">
+                    <h1>Register Users</h1>
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded" [(ngModel)]="query" placeholder="Search" aria-label="Search"
+                            aria-describedby="search-addon"/>
+                        <button type="button" class="btn btn-outline-primary">search</button>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- <input type="text" [(ngModel)]="query" placeholder="Type search text here"> -->
+                            <table class="table table-bordered ">
+                                <thead>
+                                    <th style="text-align: center">Name</th>
+                                    <th style="text-align: center">DOB</th>
+                                    <th style="text-align: center">Dose</th>
+                                    <th style="text-align: center">Status</th>
+                                    <th style="text-align: center">Mobile</th>
+                                    <th style="text-align: center">Address</th>
+                                    <th style="text-align: center">City</th>
+                                    <th style="text-align: center">State</th>
+                                    <th style="text-align: center">Aadhar No</th>
+                                    <th style="text-align: center">Action</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of users | search : query">
+                                        <td style="text-align: center"> {{item?.name}}</td>
+                                        <td style="text-align: center">{{item.dob}} </td>
+                                        <!-- <td><span *ngFor="let d of item?.doses;let last=last;">
+                                            <span *ngIf="last">{{d.doseCount}}</span>
+                                        </span></td>
+                                        <td><span *ngFor="let d of item?.doses;let last=last;">
+                                            <span *ngIf="last">{{d.doseStatus}}</span>
+                                        </span></td> -->
+                                        <td style="text-align: center">
+                                            <span *ngIf="item.doses.length">{{getValue(item.doses).doseCount}}</span>
+                                            <span *ngIf="!item.doses.length">-</span>
+                                        </td>
+                                        <td style="text-align: center">
+                                            <span *ngIf="item.doses.length">{{getValue(item.doses).doseStatus}}</span>
+                                            <span *ngIf="!item.doses.length">-</span>
+                                        </td>
+                                        <td style="text-align: center"> {{item?.mobile}}</td>
+                                        <td style="text-align: center"> {{item?.address}}</td>
+                                        <td style="text-align: center"> {{item?.city}}</td>
+                                        <td style="text-align: center"> {{item?.state}}</td>
+                                        <td style="text-align: center"> {{item?.aadharcard?.aadharNo}}</td>
+                                        <td style="text-align: center">
+                                            <button class="btn btn-primary" type="button"
+                                                (click)="onComplete(item.doses)"
+                                                [disabled]="!item.doses.length || getValue(item.doses).doseStatus=='COMPLETED'">Complete</button>
+                                            <!-- <button class="btn btn-danger ml-5" type="button"
+                                                (click)="onDelete(item.id)"
+                                                [disabled]="!item.doses.length">Delete</button> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

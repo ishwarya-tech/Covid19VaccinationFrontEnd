@@ -1,0 +1,75 @@
+<div class="cantainer">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <h1>Add Vaccination Center</h1>
+                <hr>
+                <form #addVaccineCenter="ngForm" (ngSubmit)="onSubmit(addVaccineCenter)">
+
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="vcName">Center Name</label>
+                                <input type="text" class="form-control" ngModel name="centerName" id="vcName" #vcNameRef="ngModel" pattern="[a-zA-Z0-9, ]{3,30}" required>
+                                <div *ngIf="vcNameRef.invalid && (vcNameRef.dirty || vcNameRef.touched)">
+                                    <div *ngIf="vcNameRef.errors?.['required']" class="text-danger">Vaccine center name is
+                                        required.</div>
+                                    <div *ngIf="vcNameRef.errors?.['pattern']" class="text-danger">Vaccine center name should
+                                        be of 3 to 15 characters
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="vcAdd">Address</label>
+                                <input type="text" class="form-control" ngModel name="address" id="vcAdd" #vcAddRef="ngModel"  pattern="[0-9\\\/#- ,a-zA-Z]+[ ,]+[0-9\\\/#-, a-zA-Z]{7,}$" required>
+                                <div *ngIf="vcAddRef.invalid && (vcAddRef.dirty || vcAddRef.touched)">
+                                    <div *ngIf="vcAddRef.errors?.['required']" class="text-danger">Address is
+                                        required.</div>
+                                    <div *ngIf="vcAddRef.errors?.['pattern']" class="text-danger">Address should
+                                        be of 7 to 30 characters
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="vcCity">City</label>
+                                <input type="text" class="form-control" ngModel name="city" id="vcCity" #vcCityRef="ngModel" pattern="[a-zA-Z]{3,15}" required>
+                                <div *ngIf="vcCityRef.invalid && (vcCityRef.dirty || vcCityRef.touched)">
+                                    <div *ngIf="vcCityRef.errors?.['required']" class="text-danger">City is required.</div>
+                                    <div *ngIf="vcCityRef.errors?.['pattern']" class="text-danger">City should be of 3 to 15 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="vcState">State</label>
+                                <input type="text" class="form-control" ngModel name="state" id="vcState" #vcStateRef="ngModel"pattern="[a-zA-Z]{3,15}" required>
+                                <div *ngIf="vcStateRef.invalid && (vcStateRef.dirty || vcStateRef.touched)">
+                                    <div *ngIf="vcStateRef.errors?.['required']" class="text-danger">State is required.</div>
+                                    <div *ngIf="vcStateRef.errors?.['pattern']" class="text-danger">State should be of 3 to 15 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="vcPin">Pincode</label>
+                                <input type="text" class="form-control" ngModel name="pincode" id="vcPin" #vcPinRef="ngModel" pattern="^\d{6}$" minlength="6" maxlength="6" required>
+                                <div *ngIf="vcPinRef.invalid && (vcPinRef.dirty || vcPinRef.touched)">
+                                    <div *ngIf="vcPinRef.errors?.['required']" class="text-danger">Pin code is required.</div>
+                                    <div *ngIf="vcPinRef.errors?.['pattern']" class="text-danger">Pin code should be of 3 to 15 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-primary mt-3" [disabled]="!addVaccineCenter.form.valid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

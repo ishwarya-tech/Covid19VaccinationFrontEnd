@@ -1,0 +1,56 @@
+<div class="cantainer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row">
+                <div class="col-6"><h1>Appointment List</h1></div>
+                <div class="col-6">
+                    <span class="offset-md-9">
+                        <button type="button" class="btn btn-primary" routerLink="/user/add-appointment">
+                            &#43; Add New
+                        </button>
+                    </span>
+                </div>
+            </div>
+                
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered ">
+                            <thead>
+                                <th style="text-align: center">Date</th>
+                                <th style="text-align: center">Time Slot</th>
+                                <th style="text-align: center">Dose</th>
+                                <th style="text-align: center">Dose Status</th>
+                                <th style="text-align: center">Appointment Status</th>
+                                <th style="text-align: center">Vaccine</th>
+                                <th style="text-align: center">Vaccine Center</th>
+                                <th style="text-align: center">City</th>
+                                <th style="text-align: center">Update</th>
+                                <th style="text-align: center">Delete</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of appointmentList">
+                                    <td style="text-align: center">{{item?.appointment.date | date:'dd-MM-yyyy'}}</td>
+                                    <td style="text-align: center">{{item?.appointment.slot}}</td>
+                                    <td style="text-align: center">{{item?.doseCount}}</td>
+                                    <td style="text-align: center">{{item?.doseStatus}}</td>
+                                    <td style="text-align: center">{{item?.appointment.bookingStatus}}</td>
+                                    <td style="text-align: center">{{item?.vaccine.name}}</td>
+                                    <td style="text-align: center">{{item?.center.centerName}}</td>
+                                    <td style="text-align: center">{{item?.center.city}}</td>
+                                    <td style="text-align: center">
+                                        <button class="btn btn-primary" (click)="onUpdate(item)" type="button" [disabled]="item?.doseStatus=='COMPLETED'">Update</button>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <button class="btn btn-danger" (click)="onDelete(item?.doseId)" type="button" [disabled]="item?.doseStatus=='COMPLETED' || item?.appointment.bookingStatus=='CANCELED'">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

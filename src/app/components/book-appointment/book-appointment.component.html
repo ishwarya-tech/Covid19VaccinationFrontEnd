@@ -1,0 +1,62 @@
+<div class="register_page mt-4">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <h1 *ngIf="!editFlag">Book Your Appointment</h1>
+                    <h1 *ngIf="editFlag">Update Your Appointment</h1>
+                    <hr>
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" [noValidate]="false">
+
+                        <div class="row">
+                            <div class=" col-6 form-group mt-3">
+                                <label for="roleId">Select Center</label>
+                                <select class="form-control" name="center" [(ngModel)]="bookingForm.vcid" name="vcid" [disabled]="editFlag">
+                                    <option *ngFor="let item of vaccineCenter" [value]="item.centerCode">{{item.centerName}}</option>
+                                </select>                                
+                            </div>
+                            <div class=" col-6 form-group mt-3">
+                                <label for="roleId">Select Vaccine</label>
+                                <select class="form-control" name="vaccine" [(ngModel)]="bookingForm.vid" name="vid" [disabled]="editFlag">
+                                    <option *ngFor="let item of vaccineList" [value]="item.vaccineId">{{item.name}}</option>
+                                </select>
+                            </div>
+                            <div class=" col-6 form-group mt-3">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Date for appointment</label>
+                                    <input type="date" class="form-control" [(ngModel)]="bookingForm.date" name="date" required aria-describedby="emailHelp" required>
+                                </div>
+                            </div>
+                            <div class=" col-6 form-group mt-3">
+                                <label for="roleId">Select time Slot</label>
+                                <select class="form-control" name="slot" [(ngModel)]="bookingForm.slot">
+                                    <option *ngFor="let item of timeSlot" [value]="item">{{item}}</option>
+                                </select>
+                            </div>
+                            <div class=" col-6 form-group mt-3">
+                                <label for="roleId">Select Dose</label>
+                                <select class="form-control" name="dose" [(ngModel)]="bookingForm.dose" [disabled]="editFlag">
+                                    <option value="1">First</option>
+                                    <option value="2">Second</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" class="form-control" [(ngModel)]="bookingForm.mobile" min="10" name="mobile" id="mobile" #mobileRef="ngModel" pattern="[0-9]{10}" required>
+                                    <div *ngIf="mobileRef.invalid && (mobileRef.dirty || mobileRef.touched)">
+                                        <div *ngIf="mobileRef.errors?.['required']" class="text-danger">Mobile number is required.</div>
+                                        <div *ngIf="mobileRef.errors?.['pattern']" class="text-danger">Mobile number length must be 10 digits</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <button type="submit" *ngIf="!editFlag" class="btn btn-outline-primary mt-3">Submit</button>
+                        <button type="submit" *ngIf="editFlag" class="btn btn-outline-primary mt-3">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

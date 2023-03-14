@@ -1,0 +1,161 @@
+<div class="register_page mt-4">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <h1 *ngIf="!editFlag">Registration</h1>
+                    <h1 *ngIf="editFlag">Edit Profile</h1>
+                    <hr>
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+                        <div class="row">
+                            <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" [(ngModel)]="register.name" id="name"
+                                        name="name" #nameRef="ngModel" pattern="[a-zA-Z ]{3,15}" required>
+                                    <div *ngIf="nameRef.invalid && (nameRef.dirty || nameRef.touched)">
+                                        <div *ngIf="nameRef.errors?.['required']" class="text-danger">Name is
+                                            required.</div>
+                                        <div *ngIf="nameRef.errors?.['pattern']" class="text-danger">Name should
+                                            be of 3 to 15 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-6 form-group mt-3">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" [(ngModel)]="register.gender" id="gender"
+                                    name="gender" #genderRef="ngModel" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                    <option value="O">Other</option>
+                                </select>
+                                <div *ngIf="genderRef.invalid && (genderRef.dirty || genderRef.touched)">
+                                    <div *ngIf="genderRef.errors?.['required']" class="text-danger">Gender is
+                                        required.</div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3" *ngIf="!editFlag">
+                                <div class="form-group">
+                                    <label for="mobile">Mobile Number</label>
+                                    <input type="text" class="form-control" min="10" [(ngModel)]="register.mobile"
+                                        id="mobile" name="mobile" #mobileRef="ngModel" pattern="[0-9]{10}" required>
+                                    <div *ngIf="mobileRef.invalid && (mobileRef.dirty || mobileRef.touched)">
+                                        <div *ngIf="mobileRef.errors?.['required']" class="text-danger">Mobile
+                                            number is required.</div>
+                                        <div *ngIf="mobileRef.errors?.['pattern']" class="text-danger">Mobile
+                                            number length must be 10 digits</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3" *ngIf="!editFlag">
+                                <div class="form-group">
+                                    <label for="adrNumber">Aadhar Card Number</label>
+                                    <input type="text" class="form-control" [(ngModel)]="register.adrNumber"
+                                        id="adrNumber" name="adrNumber" #adNoRef="ngModel" pattern="[0-9]{12}" required>
+                                    <div *ngIf="adNoRef.invalid && (adNoRef.dirty || adNoRef.touched)">
+                                        <div *ngIf="adNoRef.errors?.['required']" class="text-danger">Aadhar
+                                            number is required.</div>
+                                        <div *ngIf="adNoRef.errors?.['pattern']" class="text-danger">Aadhar
+                                            number length must be 12 digits.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-6 mt-3" *ngIf="!editFlag">
+                                <div class="form-group">
+                                    <label for="dob">Date Of Birth</label>
+                                    <input type="date" class="form-control" [(ngModel)]="register.dob" id="dob"
+                                        name="dob" #dateRef="ngModel" date required>
+                                    <div *ngIf="dateRef.invalid && (dateRef.dirty || dateRef.touched)">
+                                        <div *ngIf="dateRef.errors?.['required']" class="text-danger">Date of
+                                            birth is required.</div>
+                                        <div *ngIf="dateRef.errors?.['date']" class="text-danger">Enter valid
+                                            date.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class=" col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" class="form-control" [(ngModel)]="register.age" id="age"
+                                        name="age" min="1" max="100" required aria-describedby="emailHelp" required>
+                                </div>
+                            </div> -->
+                            <div class="col-12 mt-3">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" [(ngModel)]="register.address" id="address"
+                                        name="address" #addressRef="ngModel"pattern="^([a-zA-z0-9/\\''(),.-\s]{2,255})$" required>
+                                    <div *ngIf="addressRef.invalid && (addressRef.dirty || addressRef.touched)">
+                                        <div *ngIf="addressRef.errors?.['required']" class="text-danger">Address is required.</div>
+                                        <div *ngIf="addressRef.errors?.['pattern']" class="text-danger">Address should be of 7 to 70 characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" [(ngModel)]="register.city" id="city" name="city" #cityRef="ngModel" pattern="[a-zA-Z]{3,15}" required>
+                                    <div *ngIf="cityRef.invalid && (cityRef.dirty || cityRef.touched)">
+                                        <div *ngIf="cityRef.errors?.['required']" class="text-danger">City is required.</div>
+                                        <div *ngIf="cityRef.errors?.['pattern']" class="text-danger">City should be of 3 to 15 characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" class="form-control" [(ngModel)]="register.state" id="state" name="state" #stateRef="ngModel" pattern="[a-zA-Z ]{3,15}" required>
+                                    <div *ngIf="stateRef.invalid && (stateRef.dirty || stateRef.touched)">
+                                        <div *ngIf="stateRef.errors?.['required']" class="text-danger">State is required.</div>
+                                        <div *ngIf="stateRef.errors?.['pattern']" class="text-danger">State should be of 3 to 15 characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="form-group">
+                                    <label for="pincode">Pincode</label>
+                                    <input type="text" class="form-control" [(ngModel)]="register.pincode" id="pincode"
+                                        name="pincode" pattern="^\d{6}$" minlength="6" maxlength="6" #pincodeRef="ngModel" required>
+                                        <div *ngIf="pincodeRef.invalid && (pincodeRef.dirty || pincodeRef.touched)">
+                                            <div *ngIf="pincodeRef.errors?.['required']" class="text-danger">Pin code is required.</div>                  
+                                            <div *ngIf="pincodeRef.errors?.['pattern']" class="text-danger">Pincode Length must be 6 digits [0-9]</div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3" *ngIf="!editFlag">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" min="8" max="16"
+                                        [(ngModel)]="register.password" id="password" name="password"  #pwdRef="ngModel" pattern="[a-zA-Z0-9@#!%^&*]{8,16}" required>
+                                        <div *ngIf="pwdRef.invalid && (pwdRef.dirty || pwdRef.touched)">
+                                            <div *ngIf="pwdRef.errors?.['required']" class="text-danger">Password is required.</div>
+                                            <div *ngIf="pwdRef.errors?.['pattern']" class="text-danger">Password must contain min 8 and max 16
+                                                alphanumeric ,only @#!%^&* allowed .</div>
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-6 mt-3" *ngIf="!editFlag">
+                                <div class="form-group">
+                                    <label for="cpassword">Confirm Password</label>
+                                    <input type="password" class="form-control" min="8" max="16"
+                                        [(ngModel)]="cpassword" id="cpassword" name="cpassword"  #cpwdRef="ngModel" pattern="[a-zA-Z0-9@#!%^&*]{8,16}" required>
+                                        <div *ngIf="cpwdRef.invalid && (cpwdRef.dirty || cpwdRef.touched)">
+                                            <div *ngIf="cpwdRef.errors?.['required']" class="text-danger">Password is required.</div>
+                                            <div *ngIf="register.password != this.cpassword" class="text-danger">Password mismatch.</div>
+                                        </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary mt-3" *ngIf="!editFlag"
+                            [disabled]="!registerForm.form.valid">Submit</button>
+                        <button type="submit" class="btn btn-outline-primary mt-3" *ngIf="editFlag"
+                            [disabled]="!registerForm.form.valid">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

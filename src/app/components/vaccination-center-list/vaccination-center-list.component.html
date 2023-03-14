@@ -1,0 +1,98 @@
+<div class="cantainer">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="row">
+                <div class="col-6"><h1>Vaccination center</h1></div>
+                <div class="col-6">
+                    <span class="offset-md-9">
+                        <button type="button" class="btn btn-primary" routerLink="/admin/add-vaccination-center">
+                            &#43; Add New
+                        </button>
+                    </span>
+                    
+                </div>
+            </div>
+                
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered ">
+                            <!-- <thead>
+                                <th>Name</th>
+                                <th>Adress</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of vaccineCenter">
+                                    <td>{{item?.centerName}}</td>
+                                    <td>{{item?.address}}</td>
+                                    <td>{{item?.city}}</td>
+                                    <td>{{item?.state}}</td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="onDelete(item.centerCode)" type="button">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody> -->
+
+                            <thead>
+                                <th style="text-align: center">Name</th>
+                                <th style="text-align: center">Adress</th>
+                                <th style="text-align: center">City</th>
+                                <th style="text-align: center">State</th>
+                                <th style="text-align: center">Availability</th>
+                                <th style="text-align: center">Available</th>
+                                <th style="text-align: center">Unavailable</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of vaccineCenter">
+                                    <td style="text-align: center">{{item?.centerName}}</td>
+                                    <td style="text-align: center">{{item?.address}}</td>
+                                    <td style="text-align: center">{{item?.city}}</td>
+                                    <td style="text-align: center">{{item?.state}}</td>
+                                    <td style="text-align: center">{{item?.availability}}
+                                    <td style="text-align: center">
+                                        <button class="btn btn-success" (click)="availableCenter(item.centerCode)" type="button" [disabled]="item?.availability=='AVAILABLE'">Available</button>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <button class="btn btn-danger" (click)="unavailableCenter(item.centerCode)" type="button" [disabled]="item?.availability=='NOT_AVAILABLE'">Unvailable</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal start-->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <form #addCylinderForm="ngForm" (ngSubmit)="onSubmit(addCylinderForm)" [noValidate]="false">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Update Vaccination Details</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeModalBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+</div> -->
+<!-- Modal END-->

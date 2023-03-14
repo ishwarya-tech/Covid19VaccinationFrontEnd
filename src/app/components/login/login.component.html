@@ -1,0 +1,74 @@
+<div class="login_page">
+    <div class="cantainer">
+        <div class="row">
+            <div class="col-md-4 offset-md-2">
+                <div class="card">
+                    <h1>User Login</h1>
+                    <hr>
+                    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <div class="form-group">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="text" class="form-control" ngModel id="mobile" name="mobile" #mobile="ngModel" pattern="[0-9]{10}" placeholder="Enter mobile number" required>
+                                    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+                                        <div *ngIf="mobile.errors?.['required']" class="text-danger">Mobile number is required.</div>
+                                        <div *ngIf="mobile.errors?.['pattern']" class="text-danger">Mobile number length must be 10 digits</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" ngModel id="password" name="password" #pwd="ngModel" pattern="[a-zA-Z0-9@#!%^&*]{8,16}" placeholder="Enter password" required>
+                                    <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">
+                                        <div *ngIf="pwd.errors?.['required']" class="text-danger">Password is required.</div>
+                                        <div *ngIf="pwd.errors?.['pattern']" class="text-danger">Password must contain min 8 and max 16
+                                            alphanumeric ,only @#!%^&* allowed.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary mt-3" [disabled]="!loginForm.form.valid">Log In</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h1>Admin Login</h1>
+                    <hr>
+                    <form #adminLoginForm="ngForm" (ngSubmit)="onAdminSubmit(adminLoginForm)">
+
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <div class="form-group">
+                                    <label for="mobile1">Mobile</label>
+                                    <input type="text" class="form-control" ngModel id="mobile1" name="mobile" #mobile1="ngModel" pattern="[0-9]{10}" placeholder="Enter mobile number" required>
+                                    <div *ngIf="mobile1.invalid && (mobile1.dirty || mobile1.touched)">
+                                        <div *ngIf="mobile1.errors?.['required']" class="text-danger">Mobile number is required.</div>
+                                        <div *ngIf="mobile1.errors?.['pattern']" class="text-danger">Mobile number length must be 10 digits</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="form-group">
+                                    <label for="password1">Password</label>
+                                    <input type="password" class="form-control" ngModel id="password1" name="password" #pwd1="ngModel" pattern="[a-zA-Z0-9@#!%^&*]{8,16}" placeholder="Enter password" required>
+                                    <div *ngIf="pwd1.invalid && (pwd1.dirty || pwd1.touched)">
+                                        <div *ngIf="pwd1.errors?.['required']" class="text-danger">Password is required.</div>
+                                        <div *ngIf="pwd1.errors?.['pattern']" class="text-danger">Password must contain min 8 and max 16
+                                            alphanumeric ,only @#!%^&* allowed.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary mt-3" [disabled]="!adminLoginForm.form.valid">Log In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

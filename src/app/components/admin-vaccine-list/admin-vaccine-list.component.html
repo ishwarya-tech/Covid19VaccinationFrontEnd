@@ -1,0 +1,77 @@
+<div class="cantainer">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="row">
+                <div class="col-6"><h1>Vaccine List</h1></div>
+                <div class="col-6">
+                    <span class="offset-md-9">
+                        <button type="button" class="btn btn-primary" routerLink="/admin/add-vaccine">
+                            &#43; Add New
+                        </button>
+                    </span>
+                </div>
+            </div>    
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered ">
+                            <!-- <thead>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of vaccineList">
+                                    <td>{{item?.name}}</td>
+                                    <td>{{item?.description}}</td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="onDelete(item.vaccineId)" type="button">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody> -->
+
+                            <thead>
+                                <th style="text-align: center">Name</th>
+                                <th style="text-align: center">Description</th>
+                                <th style="text-align: center">Availability</th>
+                                <th style="text-align: center">Available</th>
+                                <th style="text-align: center">Unavailable</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of vaccineList">
+                                    <td style="text-align: center">{{item?.name}}</td>
+                                    <td>{{item?.description}}</td>
+                                    <td style="text-align: center">{{item?.availability}}</td>
+                                    <td style="text-align: center">
+                                        <button class="btn btn-success" (click)="availableVaccine(item.vaccineId)" type="button" [disabled]="item?.availability=='AVAILABLE'">Available</button>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <button class="btn btn-danger" (click)="unavailableVaccine(item.vaccineId)" type="button" [disabled]="item?.availability=='NOT_AVAILABLE'">Unavailable</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal start-->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <form #addCylinderForm="ngForm" [noValidate]="false">
+
+            <div class="modal-content">
+
+            </div>
+
+        </form>
+
+
+    </div>
+</div> -->
+<!-- Modal END-->
